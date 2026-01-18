@@ -101,7 +101,7 @@ const HeaderComponent = () => {
               ))}
 
               <motion.a
-                href={`${import.meta.env.BASE_URL}Sreenath_Resume.pdf`}
+                href="/Sreenath_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ y: -20, opacity: 0 }}
