@@ -1,0 +1,180 @@
+.doodle-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    transform: rotate(-2deg);
+    color: var(--ink-black);
+
+    @media (min-width: 768px) {
+        font-size: 6rem;
+    }
+
+    .letter {
+        display: inline-block;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.875rem;
+    margin-bottom: 12px;
+    font-family: "Comic Neue", cursive;
+    color: var(--pencil-gray);
+
+    @media (min-width: 768px) {
+        font-size: 2.25rem;
+    }
+
+    .role {
+        display: inline-block;
+        color: var(--marker-blue);
+        font-weight: 700;
+    }
+}
+
+.hero-tagline {
+    font-size: 1.25rem;
+    color: var(--marker-red);
+    font-family: "Indie Flower", cursive;
+    font-style: italic;
+    margin-bottom: 48px;
+
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.hero-button {
+    padding: 16px 32px;
+    font-size: 1.25rem;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 700;
+    border: 3px solid var(--ink-black);
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--ink-black);
+    transition: transform 0.2s;
+
+    &.primary {
+        background-color: var(--marker-yellow);
+        box-shadow: 5px 5px 0 var(--ink-black);
+        // color: var(--marker-blue);
+        &:hover {
+            box-shadow: 3px 3px 0 var(--ink-black);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    &.secondary {
+        background-color: var(--marker-blue);
+        box-shadow: 5px 5px 0 var(--ink-black);
+        // color: var(--marker-yellow);
+        &:hover {
+            box-shadow: 3px 3px 0 var(--ink-black);
+            transform: translate(2px, 2px);
+        }
+    }
+
+    .arrow {
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 1.5rem;
+    }
+}
+
+.hero-doodles {
+    .doodle {
+        position: absolute;
+        opacity: 0.2;
+    }
+
+    .star-top-left {
+        top: 80px;
+        left: 40px;
+        font-size: 4rem;
+    }
+
+    .heart-top-right {
+        top: 120px;
+        right: 80px;
+        font-size: 3.5rem;
+    }
+
+    .arrow-bottom-left {
+        bottom: 160px;
+        left: 80px;
+        font-size: 4.5rem;
+    }
+
+    .check-bottom-right {
+        bottom: 120px;
+        right: 120px;
+        font-size: 4rem;
+    }
+
+    .coffee {
+        top: 50%;
+        left: 10%;
+        font-size: 3rem;
+    }
+
+    .rocket {
+        top: 30%;
+        right: 15%;
+        font-size: 3.5rem;
+    }
+}
+
+.hero-note {
+    display: inline-block;
+    padding: 16px 24px;
+    background-color: var(--marker-green);
+    border: 2px dashed var(--ink-black);
+    transform: rotate(2deg);
+    font-family: "Shadows Into Light", cursive;
+    font-size: 1.125rem;
+    color: var(--ink-black);
+    max-width: 400px;
+    margin: 0 auto;
+
+    .note-text {
+        font-weight: 700;
+    }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--marker-purple);
+}

@@ -1,0 +1,29 @@
+/* :root {
+ 
+ 
+}
+
+
+[data-theme="dark"] {
+  
+} */
+
+body {
+  background-color: var(--paper-bg);
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 31px,
+    var(--paper-lines) 31px,
+    var(--paper-lines) 32px
+  );
+
+  color: var(--ink-black);
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+
+

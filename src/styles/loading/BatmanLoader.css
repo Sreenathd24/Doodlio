@@ -1,0 +1,93 @@
+.batman-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fef9f3;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(42, 42, 42, 0.03) 49px, rgba(42, 42, 42, 0.03) 50px), repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(42, 42, 42, 0.03) 49px, rgba(42, 42, 42, 0.03) 50px);
+}
+
+.sketch-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.sketch-background .sketch-circle {
+  position: absolute;
+  border: 2px dashed rgba(42, 42, 42, 0.1);
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+.batman-logo {
+  position: relative;
+  z-index: 10;
+  filter: drop-shadow(4px 4px 0 rgba(249, 215, 28, 0.3));
+}
+.batman-logo .arrow-left {
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.batman-logo .arrow-right {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loading-text {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  max-width: 500px;
+}
+.loading-text .main-text {
+  font-size: 2.25rem;
+  color: #2a2a2a;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+.loading-text .main-text .sparkle {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 1.5rem;
+}
+.loading-text .sub-text {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-top: 8px;
+  font-family: "Indie Flower", cursive;
+  position: relative;
+  display: inline-block;
+}
+.loading-text .sub-text .underline-squiggle {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.doodle-decoration {
+  position: absolute;
+  font-size: 2rem;
+  color: #f9d71c;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.pencil-sketch {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 3rem;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.1));
+}/*# sourceMappingURL=BatmanLoader.css.map */

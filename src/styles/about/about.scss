@@ -1,0 +1,205 @@
+.doodle-about {
+    min-height: 100vh;
+    padding: 80px 24px;
+    position: relative;
+}
+
+.about-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.about-title {
+    font-size: 4rem;
+    margin-bottom: 48px;
+    text-align: center;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    color: var(--ink-black);
+
+    @media (min-width: 768px) {
+        font-size: 4.5rem;
+    }
+
+    .emoji {
+        color: #4a90e2;
+        margin-left: 8px;
+    }
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.about-photo {
+    position: relative;
+
+    .polaroid {
+        background-color: white;
+        padding: 16px;
+        padding-bottom: 64px;
+        border: 3px solid var(--ink-black);
+        box-shadow: 6px 6px 0 var(--ink-black);
+        transform: rotate(-3deg);
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--marker-purple) 0%, var(--marker-blue) 100%);
+            border: 2px solid var(--ink-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .caption {
+            margin-top: 16px;
+            text-align: center;
+            font-family: "Caveat", cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--marker-blue);
+        }
+    }
+
+    .tape {
+        position: absolute;
+        width: 100px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transform: rotate(45deg);
+
+        &.tape-1 {
+            top: -10px;
+            right: 40px;
+        }
+
+        &.tape-2 {
+            bottom: 60px;
+            left: -20px;
+            transform: rotate(-35deg);
+        }
+    }
+}
+
+.about-text {
+    .story {
+        background-color: var(--marker-yellow);
+        font-weight: 900;
+        padding: 32px;
+        border: 3px solid var(--ink-black);
+        border-radius: 12px;
+        margin-bottom: 32px;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 3px solid var(--ink-black);
+            border-radius: 12px;
+            transform: translate(4px, 4px);
+            z-index: -1;
+        }
+
+        p {
+            font-family: "Comic Neue", cursive;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-weight: 900;
+            color: var(--ink-black);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .highlight {
+                background-color: var(--marker-blue);
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .fun-facts {
+        .facts-title {
+            font-family: "Patrick Hand", cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--marker-red);
+        }
+
+        .facts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                font-family: "Indie Flower", cursive;
+                font-size: 1.125rem;
+                margin-bottom: 12px;
+                padding-left: 32px;
+                position: relative;
+                color: var(--pencil-gray);
+
+                &::before {
+                    content: "→";
+                    position: absolute;
+                    left: 0;
+                    color: var(--marker-purple);
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.about-doodles {
+    .doodle {
+        position: absolute;
+        opacity: 0.15;
+    }
+
+    .coffee {
+        top: 40px;
+        right: 40px;
+        font-size: 4rem;
+    }
+
+    .rocket {
+        bottom: 40px;
+        left: 40px;
+        font-size: 4rem;
+    }
+
+    .star {
+        top: 200px;
+        left: 80px;
+        font-size: 3rem;
+    }
+}

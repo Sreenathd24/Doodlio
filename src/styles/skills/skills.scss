@@ -1,0 +1,194 @@
+.doodle-skills {
+    min-height: 100vh;
+    padding: 80px 24px;
+    position: relative;
+}
+
+.skills-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    color: var(--ink-black);
+
+    @media (min-width: 768px) {
+        font-size: 4.5rem;
+    }
+
+    .emoji svg {
+        color: #F3C623;
+        margin-left: 8px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.skills-subtitle {
+    font-family: "Indie Flower", cursive;
+    font-size: 1.25rem;
+    color: var(--marker-purple);
+    margin-bottom: 64px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.skill-category {
+    .category-box {
+        background-color: white;
+        padding: 32px;
+        border: 3px solid var(--ink-black);
+        position: relative;
+        transform: rotate(-1deg);
+        transition:
+            transform 0.3s,
+            box-shadow 0.3s;
+
+        &:hover {
+            transform: rotate(1deg) scale(1.02);
+            box-shadow: 8px 8px 0 var(--ink-black);
+        }
+
+        &.frontend {
+            background-color: #fbc100;
+            border-color: var(--marker-blue);
+        }
+
+        &.backend {
+            background-color: #00b3ff;
+            border-color: var(--marker-green);
+        }
+
+        &.tools {
+            background-color: #ff2f00;
+            border-color: var(--marker-red);
+        }
+
+        &.soft {
+            background-color: #a29bfe;
+            border-color: var(--marker-purple);
+        }
+
+        &.learning {
+            background-color: #fd79a8;
+            border-color: var(--marker-orange);
+        }
+
+        &.hobbies {
+            background-color: #55efc4;
+            border-color: var(--marker-yellow);
+        }
+    }
+
+    .category-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        justify-content: center;
+
+        .icon {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-family: "Patrick Hand", cursive;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--ink-black);
+            margin: 0;
+        }
+    }
+
+    .skills-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+
+        li {
+            font-family: "Comic Neue", cursive;
+            font-size: 1.125rem;
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            color: var(--ink-black);
+
+            .checkmark {
+                position: absolute;
+                left: 0;
+                color: var(--ink-black);
+                font-size: 1.25rem;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.skills-note {
+    display: inline-block;
+    padding: 24px 32px;
+    background-color: var(--marker-orange);
+    border: 3px dashed var(--ink-black);
+    transform: rotate(-2deg);
+    max-width: 600px;
+    margin: 0 auto;
+
+    .note-title {
+        font-family: "Caveat", cursive;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--ink-black);
+    }
+
+    .note-text {
+        font-family: "Indie Flower", cursive;
+        font-size: 1.125rem;
+        
+        color: var(--ink-black);
+    }
+}
+
+.skills-doodles {
+    .doodle {
+        position: absolute;
+        opacity: 0.1;
+    }
+
+    .trophy {
+        top: 40px;
+        left: 40px;
+        font-size: 4rem;
+    }
+
+    .sparkles {
+        top: 80px;
+        right: 80px;
+        font-size: 3.5rem;
+    }
+
+    .code {
+        bottom: 80px;
+        right: 40px;
+        font-size: 4rem;
+    }
+}
