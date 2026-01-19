@@ -1,45 +1,49 @@
 .doodle-projects {
-  min-height: 100vh;
-  padding: 80px 24px;
+  min-height: 100svh;
+  padding: clamp(64px, 10vw, 96px) 16px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .projects-container {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 .projects-title {
-  font-size: 4rem;
-  margin-bottom: 16px;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin-bottom: 12px;
   font-family: "Caveat", cursive;
   font-weight: 700;
   color: var(--ink-black);
+  line-height: 1.1;
 }
-@media (min-width: 768px) {
-  .projects-title {
-    font-size: 4.5rem;
-  }
-}
+
 .projects-title .emoji svg {
   color: #4a90e2;
   margin-left: 8px;
+  width: clamp(36px, 6vw, 64px);
+  height: auto;
+  vertical-align: middle;
 }
 
 .projects-subtitle {
   font-family: "Indie Flower", cursive;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
   color: var(--marker-red);
-  margin-bottom: 64px;
+  margin-bottom: clamp(40px, 8vw, 64px);
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 64px;
-  margin-bottom: 48px;
+  gap: clamp(32px, 6vw, 64px);
+  margin-bottom: clamp(32px, 6vw, 48px);
 }
+
 @media (min-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -50,20 +54,25 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.project-card {
+  width: 100%;
+}
 
 .project-card .polaroid {
   background-color: white;
   padding: 16px;
-  padding-bottom: 80px;
+  padding-bottom: clamp(48px, 10vw, 80px);
   border: 3px solid var(--ink-black);
   box-shadow: 6px 6px 0 var(--ink-black);
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .project-card .polaroid:hover {
   transform: rotate(0deg) translateY(-8px);
   box-shadow: 10px 10px 0 var(--ink-black);
 }
+
 .project-card .polaroid .project-image {
   width: 100%;
   aspect-ratio: 4/3;
@@ -71,131 +80,174 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
-  position: relative;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   overflow: hidden;
 }
+
 .project-card .polaroid .project-info {
   padding: 16px;
 }
+
 .project-card .polaroid .project-info h3 {
   font-family: "Caveat", cursive;
-  font-size: 1.75rem;
+  font-size: clamp(1.4rem, 4.5vw, 1.75rem);
   font-weight: 700;
   margin-bottom: 8px;
 }
+
 .project-card .polaroid .project-info p {
   font-family: "Comic Neue", cursive;
-  font-size: 1rem;
-  margin-bottom: 16px;
+  font-size: clamp(0.95rem, 3.5vw, 1rem);
+  margin-bottom: 14px;
   line-height: 1.6;
 }
+
 .project-card .polaroid .project-info .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  justify-content: center;
 }
-.project-card .polaroid .project-info .tags .tag {
-  padding: 4px 12px;
+
+.project-card .polaroid .project-info .tag {
+  padding: 4px 10px;
   font-family: "Indie Flower", cursive;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   border: 2px solid var(--ink-black);
   background-color: var(--marker-yellow);
 }
+
 .project-card .polaroid .project-info .links {
   display: flex;
   gap: 12px;
   justify-content: center;
+  flex-wrap: wrap;
 }
+
 .project-card .polaroid .project-info .links a {
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-family: "Patrick Hand", cursive;
   font-weight: 700;
   border: 2px solid var(--ink-black);
   background-color: var(--marker-blue);
   color: var(--ink-black);
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 3px 3px 0 var(--ink-black);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .project-card .polaroid .project-info .links a:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--ink-black);
 }
+
 .project-card .polaroid .project-info .links a svg {
-  display: inline-block;
-  vertical-align: middle;
   margin-right: 4px;
+  vertical-align: middle;
 }
+
 .project-card .tape {
   position: absolute;
-  width: 80px;
-  height: 25px;
+  width: 70px;
+  height: 22px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: rotate(45deg);
-  top: -8px;
-  right: 30%;
+  transform: rotate(35deg);
+  top: -6px;
+  right: 28%;
+}
+
+.projects-cta {
+  margin-top: clamp(40px, 8vw, 64px);
 }
 
 .projects-cta .cta-box {
   display: inline-block;
-  padding: 32px;
+  padding: clamp(20px, 5vw, 32px);
   background-color: var(--marker-purple);
   border: 4px solid var(--ink-black);
   transform: rotate(1deg);
-  max-width: 500px;
+  max-width: min(500px, 90%);
 }
-.projects-cta .cta-box .cta-title {
+
+.projects-cta .cta-title {
   font-family: "Caveat", cursive;
-  font-size: 2.25rem;
+  font-size: clamp(1.8rem, 6vw, 2.25rem);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: white;
 }
-.projects-cta .cta-box .cta-text {
+
+.projects-cta .cta-text {
   font-family: "Comic Neue", cursive;
-  font-size: 1.125rem;
-  margin-bottom: 24px;
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
+  margin-bottom: 20px;
   color: white;
 }
-.projects-cta .cta-box .cta-button {
-  padding: 12px 32px;
+
+.projects-cta .cta-button {
+  padding: 12px 28px;
   font-family: "Patrick Hand", cursive;
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 4vw, 1.25rem);
   font-weight: 700;
   background-color: var(--marker-yellow);
   border: 3px solid var(--ink-black);
-  cursor: pointer;
   box-shadow: 4px 4px 0 var(--ink-black);
-  transition: transform 0.2s, box-shadow 0.2s;
   color: var(--ink-black);
   text-decoration: none;
   display: inline-block;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.projects-cta .cta-box .cta-button:hover {
+
+.projects-cta .cta-button:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--ink-black);
 }
-.projects-cta .cta-box .cta-button .arrow {
-  display: inline-block;
+
+.projects-cta .cta-button .arrow {
   margin-left: 8px;
-  font-size: 1.5rem;
+  font-size: 1.4em;
 }
 
 .projects-doodles .doodle {
   position: absolute;
   opacity: 0.1;
+  pointer-events: none;
 }
+
 .projects-doodles .lightbulb {
   top: 80px;
   right: 80px;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
 }
+
 .projects-doodles .star {
   bottom: 120px;
   left: 80px;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (max-width: 487px) {
+  .doodle-projects {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 56px;
+  }
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .project-card,
+  .project-card .polaroid {
+    transform: none !important;
+  }
+  .project-card .tape {
+    display: none;
+  }
+  .projects-doodles {
+    display: none;
+  }
 }/*# sourceMappingURL=project.css.map */

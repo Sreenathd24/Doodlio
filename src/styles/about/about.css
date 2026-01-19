@@ -1,8 +1,9 @@
 @charset "UTF-8";
 .doodle-about {
-  min-height: 100vh;
-  padding: 80px 24px;
+  min-height: 100svh;
+  padding: clamp(64px, 10vw, 96px) 16px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .about-container {
@@ -13,27 +14,24 @@
 }
 
 .about-title {
-  font-size: 4rem;
-  margin-bottom: 48px;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin-bottom: clamp(32px, 6vw, 48px);
   text-align: center;
   font-family: "Caveat", cursive;
   font-weight: 700;
   color: var(--ink-black);
-}
-@media (min-width: 768px) {
-  .about-title {
-    font-size: 4.5rem;
-  }
+  line-height: 1.1;
 }
 .about-title .emoji {
   color: #4a90e2;
   margin-left: 8px;
+  font-size: 0.9em;
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 48px;
+  gap: clamp(32px, 6vw, 48px);
   align-items: center;
 }
 @media (min-width: 768px) {
@@ -44,15 +42,17 @@
 
 .about-photo {
   position: relative;
+  max-width: 420px;
+  margin: 0 auto;
 }
 .about-photo .polaroid {
   background-color: white;
   padding: 16px;
-  padding-bottom: 64px;
+  padding-bottom: 56px;
   border: 3px solid var(--ink-black);
   box-shadow: 6px 6px 0 var(--ink-black);
   transform: rotate(-3deg);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 .about-photo .polaroid:hover {
   transform: rotate(0deg) scale(1.02);
@@ -65,53 +65,48 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
-  position: relative;
+  font-size: clamp(3.5rem, 8vw, 6rem);
   overflow: hidden;
 }
 .about-photo .polaroid .caption {
-  margin-top: 16px;
+  margin-top: 12px;
   text-align: center;
   font-family: "Caveat", cursive;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
   font-weight: 700;
   color: var(--marker-blue);
 }
 .about-photo .tape {
   position: absolute;
-  width: 100px;
-  height: 30px;
+  width: 80px;
+  height: 26px;
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: rotate(45deg);
 }
 .about-photo .tape.tape-1 {
-  top: -10px;
-  right: 40px;
+  top: -8px;
+  right: 24px;
+  transform: rotate(35deg);
 }
 .about-photo .tape.tape-2 {
-  bottom: 60px;
-  left: -20px;
-  transform: rotate(-35deg);
+  bottom: 48px;
+  left: -12px;
+  transform: rotate(-30deg);
 }
 
 .about-text .story {
   background-color: var(--marker-yellow);
-  font-weight: 900;
-  padding: 32px;
+  padding: clamp(20px, 5vw, 32px);
   border: 3px solid var(--ink-black);
   border-radius: 12px;
-  margin-bottom: 32px;
+  margin-bottom: clamp(24px, 5vw, 32px);
   position: relative;
 }
 .about-text .story::before {
   content: "";
   position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
+  inset: -3px;
   border: 3px solid var(--ink-black);
   border-radius: 12px;
   transform: translate(4px, 4px);
@@ -119,10 +114,10 @@
 }
 .about-text .story p {
   font-family: "Comic Neue", cursive;
-  font-size: 1.125rem;
-  line-height: 1.8;
-  margin-bottom: 16px;
-  font-weight: 900;
+  font-size: clamp(1rem, 3.8vw, 1.125rem);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  font-weight: 700;
   color: var(--ink-black);
 }
 .about-text .story p:last-child {
@@ -136,9 +131,9 @@
 }
 .about-text .fun-facts .facts-title {
   font-family: "Patrick Hand", cursive;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--marker-red);
 }
 .about-text .fun-facts .facts-list {
@@ -148,9 +143,9 @@
 }
 .about-text .fun-facts .facts-list li {
   font-family: "Indie Flower", cursive;
-  font-size: 1.125rem;
-  margin-bottom: 12px;
-  padding-left: 32px;
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
+  margin-bottom: 10px;
+  padding-left: 28px;
   position: relative;
   color: var(--pencil-gray);
 }
@@ -159,25 +154,74 @@
   position: absolute;
   left: 0;
   color: var(--marker-purple);
-  font-size: 1.5rem;
+  font-size: 1.3em;
 }
 
 .about-doodles .doodle {
   position: absolute;
   opacity: 0.15;
+  pointer-events: none;
 }
 .about-doodles .coffee {
   top: 40px;
   right: 40px;
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 .about-doodles .rocket {
   bottom: 40px;
   left: 40px;
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 .about-doodles .star {
   top: 200px;
   left: 80px;
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+@media (max-width: 480px) {
+  .doodle-about {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 56px;
+  }
+  .about-photo .polaroid {
+    transform: none;
+  }
+  .about-photo .tape {
+    display: none;
+  }
+  .about-doodles {
+    display: none;
+  }
+}
+@media (max-width: 457px) {
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .about-photo,
+  .about-text {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .about-photo {
+    max-width: 100%;
+    overflow: visible;
+  }
+  .about-photo .polaroid {
+    transform: none;
+    margin: 0 auto;
+  }
+  .about-text {
+    width: 100%;
+    overflow: visible;
+  }
+  .about-photo .tape {
+    display: none;
+  }
+  .doodle-about,
+  .about-container {
+    overflow: visible;
+  }
 }/*# sourceMappingURL=about.css.map */

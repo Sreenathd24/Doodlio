@@ -2,8 +2,9 @@ const Logo = () => (
   <svg
     className="logo-svg"
     viewBox="0 0 360 110"
+    width="160"
+    height="50"
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
   >
     <rect
       x="20"
@@ -42,7 +43,7 @@ const Logo = () => (
       y="75"
       fontSize="38"
       fontFamily="Comic Sans MS, cursive"
-      fill="currentColor"
+      fill="var(--ink-black)"
     >
       S
     </text>

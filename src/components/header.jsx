@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { FileText, Menu, X } from "lucide-react";
 import Logo from "../assets/logo";
 import "../styles/header/header.css";
-import Marker from "../assets/marker";
-import { FileText } from "lucide-react";
 
 const navigationLinks = [
   { label: "Home", href: "#home" },
@@ -12,22 +11,22 @@ const navigationLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
+
 const HeaderComponent = () => {
   const [currentPage, setCurrentPage] = useState("home");
-  console.log("currentPage: ", currentPage);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  /* 🔍 Scroll spy */
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navigationLinks.map((item) => item.href.slice(1));
+      for (const item of navigationLinks) {
+        const id = item.href.slice(1);
+        const el = document.getElementById(id);
+        if (!el) continue;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (!element) continue;
-
-        const rect = element.getBoundingClientRect();
-
+        const rect = el.getBoundingClientRect();
         if (rect.top <= 150 && rect.bottom >= 150) {
-          setCurrentPage(section);
+          setCurrentPage(id);
           break;
         }
       }
@@ -39,12 +38,16 @@ const HeaderComponent = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* 🔒 Lock body scroll on mobile menu */
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    console.log("element: ", element);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      // setMobileMenuOpen(false);
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
   };
 
@@ -57,35 +60,26 @@ const HeaderComponent = () => {
               className="nav-logo"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
             >
               <Logo />
-              {/* <motion.div
-                className="doodle star-logo"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              > */}
-              {/* ☆ */}
-              {/* </motion.div> */}
             </motion.div>
 
             <div className="nav-menu">
-              {navigationLinks?.map((item, index) => (
+              {navigationLinks.map((item, index) => (
                 <motion.div
-                  className="nav-link"
                   key={item.href}
+                  className="nav-link"
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.href)}
                 >
                   <span>{item.label}</span>
+
                   {currentPage === item.href.slice(1) && (
-                    <motion.div layoutId="scribbleUnderline">
+                    <motion.div layoutId="scribble">
                       <svg
                         className="nav-underline"
-                        width="100%"
-                        height="8"
                         viewBox="0 0 100 8"
                         preserveAspectRatio="none"
                       >
@@ -101,12 +95,9 @@ const HeaderComponent = () => {
               ))}
 
               <motion.a
-                href="/Sreenath_Resume.pdf"
+                href={`${import.meta.env.BASE_URL}Sreenath Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: navigationLinks.length * 0.1 }}
                 className="resume-button"
               >
                 <FileText size={18} />
@@ -122,9 +113,57 @@ const HeaderComponent = () => {
                 </svg>
               </motion.a>
             </div>
+
+            <button
+              className="nav-burger"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
         </div>
       </nav>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="mobile-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div
+              className="mobile-backdrop"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+
+            <motion.div
+              className="mobile-drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25 }}
+            >
+              {navigationLinks.map((item, index) => (
+                <motion.button
+                  key={item.href}
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`mobile-link ${
+                    currentPage === item.href.slice(1) ? "active" : ""
+                  }`}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+
+              <div className="mobile-doodle">☆ ♥ ↗</div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

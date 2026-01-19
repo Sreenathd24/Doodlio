@@ -1,226 +1,254 @@
 .doodle-contact {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
-    padding: 80px 24px;
+    padding: clamp(64px, 10vw, 96px) 16px;
     position: relative;
+    overflow-x: hidden;
 }
 
 .contact-container {
     max-width: 1024px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .contact-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: clamp(32px, 6vw, 48px);
+}
 
-    h2 {
-        font-size: 4rem;
-        margin-bottom: 16px;
-        font-family: "Caveat", cursive;
-        font-weight: 700;
-        color: var(--ink-black);
+.contact-header h2 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin-bottom: 12px;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    color: var(--ink-black);
+    line-height: 1.1;
+}
 
-        @media (min-width: 768px) {
-            font-size: 4.5rem;
-        }
+.contact-header h2 .emoji svg {
+    color: #f9d71c;
+    margin-left: 8px;
+    width: clamp(36px, 6vw, 60px);
+    height: auto;
+    vertical-align: middle;
+}
 
-        .emoji svg {
-            color: #f9d71c;
-            margin-left: 8px;
-        }
-    }
+.contact-header .subtitle {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    color: #5a5a5a;
+    margin-bottom: 8px;
+    font-family: "Indie Flower", cursive;
+}
 
-    .subtitle {
-        font-size: 1.5rem;
-        color: #5a5a5a;
-        margin-bottom: 8px;
-        font-family: "Indie Flower", cursive;
-    }
-
-    .arrow-hint {
-        display: inline-block;
-        font-size: 0.875rem;
-        color: #e74c3c;
-        font-family: "Shadows Into Light", cursive;
-    }
+.contact-header .arrow-hint {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #e74c3c;
+    font-family: "Shadows Into Light", cursive;
 }
 
 .contact-links {
-    margin-bottom: 48px;
+    margin-bottom: clamp(32px, 6vw, 48px);
+}
 
-    .contact-link {
-        display: block;
-        margin-bottom: 24px;
-        text-decoration: none;
-        color: inherit;
+.contact-links .contact-link {
+    display: block;
+    margin-bottom: clamp(16px, 4vw, 24px);
+    text-decoration: none;
+    color: inherit;
+}
 
-        .sketchy-box {
-            background-color: var(--paper-bg);
-            padding: 24px;
-            border: 3px solid var(--ink-black);
-            box-shadow: 5px 5px 0 var(--ink-black);
-            transition:
-                transform 0.3s,
-                box-shadow 0.3s;
+.contact-links .contact-link .sketchy-box {
+    background-color: var(--paper-bg);
+    padding: clamp(16px, 4vw, 24px);
+    border: 3px solid var(--ink-black);
+    box-shadow: 5px 5px 0 var(--ink-black);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-            &:hover {
-                transform: rotate(0deg) scale(1.03);
-                box-shadow: 7px 7px 0 var(--ink-black);
-            }
+.contact-links .contact-link .sketchy-box:hover {
+    transform: rotate(0deg) scale(1.03);
+    box-shadow: 7px 7px 0 var(--ink-black);
+}
 
-            .content {
-                display: flex;
-                align-items: center;
-                gap: 16px;
+.contact-links .contact-link .sketchy-box .content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-                .icon-circle {
-                    width: 64px;
-                    height: 64px;
-                    min-width: 64px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: 2px solid;
-                    border-radius: 50%;
-                    transition: transform 0.5s;
+.contact-links .icon-circle {
+    width: clamp(48px, 10vw, 64px);
+    height: clamp(48px, 10vw, 64px);
+    min-width: clamp(48px, 10vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 50%;
+}
 
-                    &:hover {
-                        transform: rotate(360deg);
-                    }
-                }
+.contact-links .info {
+    flex: 1;
+    min-width: 0;
+}
 
-                .info {
-                    flex: 1;
+.contact-links .label {
+    font-size: 0.8rem;
+    color: #5a5a5a;
+    margin-bottom: 4px;
+    font-family: "Comic Neue", cursive;
+}
 
-                    .label {
-                        font-size: 0.875rem;
-                        color: #5a5a5a;
-                        margin-bottom: 4px;
-                        font-family: "Comic Neue", cursive;
-                    }
+.contact-links .value {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 700;
+    font-family: "Patrick Hand", cursive;
+    color: var(--ink-black);
+    word-break: break-word;
+}
 
-                    .value {
-                        font-size: 1.25rem;
-                        font-weight: 700;
-                        font-family: "Patrick Hand", cursive;
-                        color: var(--ink-black);
-                    }
+.contact-links .note {
+    font-size: 0.75rem;
+    color: #e74c3c;
+    font-style: italic;
+    margin-top: 4px;
+    font-family: "Indie Flower", cursive;
+}
 
-                    .note {
-                        font-size: 0.75rem;
-                        color: #e74c3c;
-                        font-style: italic;
-                        margin-top: 4px;
-                        font-family: "Indie Flower", cursive;
-                    }
-                }
-
-                .arrow {
-                    font-size: 1.875rem;
-                    color: var(--ink-black);
-                }
-            }
-        }
-    }
+.contact-links .arrow {
+    font-size: clamp(1.2rem, 4vw, 1.875rem);
+    color: var(--ink-black);
 }
 
 .contact-cta {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: clamp(32px, 6vw, 48px);
+}
 
-    .cta-box {
-        display: inline-block;
-        padding: 24px;
-        background-color: #2ecc71;
-        border: 4px solid #2a2a2a;
-        max-width: 600px;
-        transform: rotate(-2deg);
+.contact-cta .cta-box {
+    display: inline-block;
+    padding: clamp(16px, 5vw, 24px);
+    background-color: #2ecc71;
+    border: 4px solid #2a2a2a;
+    max-width: min(600px, 90%);
+    transform: rotate(-2deg);
+}
 
-        .icon {
-            display: inline-block;
-            margin-right: 8px;
-            margin-bottom: 4px;
-            vertical-align: middle;
-        }
+.contact-cta .icon {
+    margin-right: 6px;
+    vertical-align: middle;
+}
 
-        .title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            font-family: "Caveat", cursive;
-            color: var(--ink-black);
-        }
+.contact-cta .title {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: "Caveat", cursive;
+    color: var(--ink-black);
+}
 
-        .text {
-            font-size: 1.125rem;
-            font-family: "Comic Neue", cursive;
-            color: var(--ink-black);
-        }
+.contact-cta .text {
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    font-family: "Comic Neue", cursive;
+    color: var(--ink-black);
+}
 
-        .subtext {
-            margin-top: 12px;
-            font-size: 0.875rem;
-            font-family: "Indie Flower", cursive;
-            color: var(--ink-black);
-        }
-    }
+.contact-cta .subtext {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-family: "Indie Flower", cursive;
+    color: var(--ink-black);
 }
 
 .contact-footer {
-    padding-top: 48px;
+    padding-top: clamp(32px, 6vw, 48px);
     border-top: 2px dashed #5a5a5a;
     text-align: center;
-
-    .emoji-row {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        margin-bottom: 16px;
-        font-size: 1.875rem;
-
-        .emoji {
-            opacity: 0.3;
-        }
-    }
-
-    .made-with {
-        font-size: 1.125rem;
-        color: #5a5a5a;
-        font-family: "Comic Neue", cursive;
-    }
-
-    .copyright {
-        font-size: 0.875rem;
-        color: #5a5a5a;
-        margin-top: 8px;
-        font-family: "Patrick Hand", cursive;
-    }
 }
 
-.contact-doodles {
-    .doodle {
-        position: absolute;
-        opacity: 0.1;
+.contact-footer .emoji-row {
+    display: flex;
+    justify-content: center;
+    gap: clamp(8px, 4vw, 16px);
+    margin-bottom: 12px;
+    font-size: clamp(1.4rem, 5vw, 1.875rem);
+}
+
+.contact-footer .emoji {
+    opacity: 0.3;
+}
+
+.contact-footer .made-with {
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    color: #5a5a5a;
+    font-family: "Comic Neue", cursive;
+}
+
+.contact-footer .copyright {
+    font-size: 0.85rem;
+    color: #5a5a5a;
+    margin-top: 6px;
+    font-family: "Patrick Hand", cursive;
+}
+
+.contact-doodles .doodle {
+    position: absolute;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.contact-doodles .mail {
+    top: 40px;
+    left: 40px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.contact-doodles .chat {
+    bottom: 40px;
+    right: 40px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.contact-doodles .sparkles {
+    top: 128px;
+    right: 80px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+@media (max-width: 487px) {
+    .doodle-contact {
+        min-height: auto;
+        align-items: flex-start;
+        padding-top: 80px;
+        padding-bottom: 56px;
     }
 
-    .mail {
-        top: 40px;
-        left: 40px;
-        font-size: 4.5rem;
+    .contact-link,
+    .sketchy-box {
+        transform: none !important;
     }
 
-    .chat {
-        bottom: 40px;
-        right: 40px;
-        font-size: 4.5rem;
+    .sketchy-box .content {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .sparkles {
-        top: 128px;
-        right: 80px;
-        font-size: 3rem;
+    .sketchy-box .arrow {
+        display: none;
+    }
+
+    .contact-doodles {
+        display: none;
+    }
+
+    .cta-box {
+        transform: none;
     }
 }
