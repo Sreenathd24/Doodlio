@@ -56,23 +56,14 @@ const About = () => {
             >
               <div className="story">
                 <p>
-                  Hey there! 👋 I'm a developer who loves turning{" "}
+                  Hey there! I'm a developer who loves turning{" "}
                   <span className="highlight">coffee into code</span> and bugs
-                  into features (totally on purpose).
+                  into features.
                 </p>
                 <p>
-                  I've been coding for <strong>3+ years</strong>, and I still
-                  Google "how to center a div" at least once a week.
-                  <span
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "#e74c3c",
-                      marginLeft: "8px",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    (true story)
-                  </span>
+                  With <strong>3+ years</strong> in the trenches, I’ve mastered
+                  the art of the "perfect search" because knowing the answer is
+                  good, but finding it in seconds is a superpower.
                 </p>
                 <p>
                   When I'm not debugging at 2 AM, you'll find me experimenting
@@ -84,10 +75,14 @@ const About = () => {
               <div className="fun-facts">
                 <h3 className="facts-title">Fun Facts About Me:</h3>
                 <ul className="facts-list">
-                  <li>I name my variables after food 🍕</li>
-                  <li>My rubber duck is my best coworker 🦆</li>
-                  <li>I have 47 side projects (3 are "almost done") 📦</li>
-                  <li>Tabs vs Spaces? I use both to watch the world burn 🔥</li>
+                  <li>
+                    I read documentation so others don’t have to. (Sometimes.)
+                  </li>
+                  <li>I turn “quick fixes” into long-term relationships.</li>
+
+                  <li>I believe every bug teaches patience.</li>
+
+                  <li>I ship fast so I can fix faster.</li>
                 </ul>
               </div>
             </motion.div>

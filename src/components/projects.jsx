@@ -133,8 +133,7 @@ const DoodleBuilder = () => (
 const projects = [
   {
     title: "NodeVizor",
-    description:
-      "Track your caffeine intake and productivity correlation. Spoiler: more coffee = more features.",
+    description: "A node based JSON viewer that makes complex data readable.",
     emoji: "☕",
     tags: ["TypeScript", "React"],
     gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
@@ -147,7 +146,7 @@ const projects = [
   {
     title: "Namma Ooru Deals",
     description:
-      "Because the world needs more memes. AI-powered caption suggestions included.",
+      "A real time price comparison platform for quick commerce apps like Zepto, instamart and blinkit.",
     emoji: "😂",
     tags: ["React", "Express.js", "Node.js", "MonogDB"],
     gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
@@ -159,8 +158,7 @@ const projects = [
   },
   {
     title: "Detection of Malcious Url",
-    description:
-      "A todo app that actually makes you want to do things. Features: reminders, procrastination mode, and guilt-tripping notifications.",
+    description: "A machine learning model to identify malicious URLs.",
     emoji: "📝",
     tags: ["Python", "Numpy", "pandas"],
     gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
