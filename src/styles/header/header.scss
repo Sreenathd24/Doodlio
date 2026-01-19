@@ -171,6 +171,22 @@
     background: var(--menu-5);
 }
 
+/* ===== MOBILE RESUME ===== */
+.mobile-resume {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.1rem;
+    background: var(--marker-red);
+    color: white;
+    border: 3px solid var(--ink-black);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 /* hover + active */
 .mobile-link:hover::after,
 .mobile-link.active::after {
@@ -186,16 +202,13 @@
     height: auto;
 }
 
-
 .nav-logo {
     color: #ffffff;
 }
 
-
 .dark .nav-logo {
     color: #f9fafb;
 }
-
 
 :root {
     --marker-blue: #3b82f6;

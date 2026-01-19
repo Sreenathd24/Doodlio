@@ -34,11 +34,10 @@ const HeaderComponent = () => {
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* 🔒 Lock body scroll on mobile menu */
+  /* 🔒 Lock body scroll */
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
   }, [mobileMenuOpen]);
@@ -53,6 +52,7 @@ const HeaderComponent = () => {
 
   return (
     <>
+      {/* ===== NAVBAR ===== */}
       <nav className="doodle-navigation">
         <div className="nav-container">
           <div className="nav-content">
@@ -64,6 +64,7 @@ const HeaderComponent = () => {
               <Logo />
             </motion.div>
 
+            {/* ===== DESKTOP MENU ===== */}
             <div className="nav-menu">
               {navigationLinks.map((item, index) => (
                 <motion.div
@@ -94,6 +95,7 @@ const HeaderComponent = () => {
                 </motion.div>
               ))}
 
+              {/* DESKTOP RESUME */}
               <motion.a
                 href={`${import.meta.env.BASE_URL}Sreenath Resume.pdf`}
                 target="_blank"
@@ -102,18 +104,10 @@ const HeaderComponent = () => {
               >
                 <FileText size={18} />
                 <span>Resume</span>
-                <svg className="resume-underline" viewBox="0 0 120 6">
-                  <path
-                    d="M2,3 Q30,1 60,3 T118,3"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
               </motion.a>
             </div>
 
+            {/* BURGER */}
             <button
               className="nav-burger"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -124,6 +118,7 @@ const HeaderComponent = () => {
         </div>
       </nav>
 
+      {/* ===== MOBILE MENU ===== */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -149,7 +144,7 @@ const HeaderComponent = () => {
                   key={item.href}
                   initial={{ x: 40, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   onClick={() => scrollToSection(item.href)}
                   className={`mobile-link ${
                     currentPage === item.href.slice(1) ? "active" : ""
@@ -158,6 +153,21 @@ const HeaderComponent = () => {
                   {item.label}
                 </motion.button>
               ))}
+
+              {/* ✅ MOBILE RESUME BUTTON */}
+              <motion.a
+                href={`${import.meta.env.BASE_URL}Sreenath Resume.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-resume"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <FileText size={20} />
+                <span>Resume</span>
+              </motion.a>
 
               <div className="mobile-doodle">☆ ♥ ↗</div>
             </motion.div>
