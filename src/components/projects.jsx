@@ -141,7 +141,7 @@ const projects = [
     github: "https://github.com/Sreenathd24/nodevizor",
     demo: "https://nodevizor.vercel.app",
     thumbnail:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxPj8bF_mTqJM7sXjjSx_C_XSOuMSp0hr4A&s",
+      "https://png.pngtree.com/png-vector/20190724/ourmid/pngtree-nodes-icon-for-your-project-png-image_1572766.jpg",
   },
   {
     title: "Namma Ooru Deals",
@@ -154,7 +154,7 @@ const projects = [
     github: "https://github.com/Sreenathd24/namma-ooru-deals",
     demo: "https://nammaoorudeals.vercel.app",
     thumbnail:
-      "https://png.pngtree.com/png-vector/20190724/ourmid/pngtree-nodes-icon-for-your-project-png-image_1572766.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxPj8bF_mTqJM7sXjjSx_C_XSOuMSp0hr4A&s",
   },
   {
     title: "Detection of Malcious Url",
